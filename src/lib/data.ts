@@ -66,103 +66,102 @@ export interface Roadmap {
 }
 
 export const courses: Course[] = [
-  {
-    id: "rust-beginner-to-intermediate",
-    title: "Rust: Beginner to Intermediate",
-    description:
-      "The complete structured path from your first Rust line to building async web APIs. Built for developers who know JavaScript or another high-level language.",
-    instructor: "mr-vtx",
-    level: "Intermediate",
-    duration: "8 weeks",
-    totalLessons: 12,
-    rating: 4.9,
-    students: 1240,
-    tags: ["Rust", "Systems", "CLI", "Async"],
-    color: "amber",
-    progress: 35,
-    resources: [
-      { label: "The Rust Book (free)", url: "https://doc.rust-lang.org/book/" },
-      {
-        label: "Rustlings exercises",
-        url: "https://github.com/rust-lang/rustlings",
-      },
-      { label: "crates.io", url: "https://crates.io" },
-    ],
-    lessons: [
-      {
-        id: "r1",
-        title: "Why Rust — the problem it solves",
-        duration: "14:20",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r2",
-        title: "Installing Rust and the toolchain",
-        duration: "08:45",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r3",
-        title: "Variables, mutability, and shadowing",
-        duration: "18:10",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r4",
-        title: "Ownership — the core mental model",
-        duration: "28:15",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r5",
-        title: "Borrowing and references",
-        duration: "24:30",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r6",
-        title: "Structs and enums",
-        duration: "23:45",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r7",
-        title: "Option<T> and Result<T, E>",
-        duration: "22:10",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r8",
-        title: "Traits and generics",
-        duration: "27:00",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r9",
-        title: "Collections and iterators",
-        duration: "28:40",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r10",
-        title: "Error handling with thiserror + anyhow",
-        duration: "20:00",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r11",
-        title: "Async / await and tokio",
-        duration: "32:00",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-      {
-        id: "r12",
-        title: "Building a REST API with Axum",
-        duration: "38:20",
-        youtubeId: "dQw4w9WgXcQ",
-      },
-    ],
-  },
+{
+  id: "rust-beginner-to-intermediate",
+  title: "Rust: Beginner to Intermediate",
+  description:
+    "The complete structured path from your first Rust line to building async web APIs. Built for developers who know JavaScript or another high-level language.",
+  instructor: "mr-vtx",
+  level: "Intermediate",
+  duration: "8 weeks",
+  totalLessons: 12,
+  rating: 4.9,
+  students: 1240,
+  tags: ["Rust", "Systems", "CLI", "Async"],
+  color: "amber",
+  progress: 35,
+
+  resources: [
+    { label: "The Rust Book", url: "https://doc.rust-lang.org/book/" },
+    { label: "Rustlings", url: "https://github.com/rust-lang/rustlings" },
+    { label: "crates.io", url: "https://crates.io" }
+  ],
+
+  lessons: [
+    {
+      id: "r1",
+      title: "Why Rust — the problem it solves",
+      duration: "14:20",
+      youtubeId: "DnT-LUQgc7s"
+    },
+    {
+      id: "r2",
+      title: "Installing Rust and toolchain (cargo, rustup)",
+      duration: "08:45",
+      youtubeId: "zF34dRivLOw"
+    },
+    {
+      id: "r3",
+      title: "Variables, mutability, and shadowing",
+      duration: "18:10",
+      youtubeId: "5C_HPTJg5ek"
+    },
+    {
+      id: "r4",
+      title: "Ownership — Rust’s core concept",
+      duration: "28:15",
+      youtubeId: "5C_h2v9z1x8"
+    },
+    {
+      id: "r5",
+      title: "Borrowing and references",
+      duration: "24:30",
+      youtubeId: "6rcTSxPJ6Bw"
+    },
+    {
+      id: "r6",
+      title: "Structs and enums",
+      duration: "23:45",
+      youtubeId: "bC6wR3nXk4A"
+    },
+    {
+      id: "r7",
+      title: "Option<T> and Result<T, E>",
+      duration: "22:10",
+      youtubeId: "7mQ7KfZ3z8Q"
+    },
+    {
+      id: "r8",
+      title: "Traits and generics",
+      duration: "27:00",
+      youtubeId: "1S3Z2v0b1pQ"
+    },
+    {
+      id: "r9",
+      title: "Collections and iterators",
+      duration: "28:40",
+      youtubeId: "KJvZc9b4yX0"
+    },
+    {
+      id: "r10",
+      title: "Error handling with thiserror + anyhow",
+      duration: "20:00",
+      youtubeId: "p7FZbQ9r2mA"
+    },
+    {
+      id: "r11",
+      title: "Async / await and tokio",
+      duration: "32:00",
+      youtubeId: "2h4ZxY9tGkQ"
+    },
+    {
+      id: "r12",
+      title: "Building a REST API with Axum",
+      duration: "38:20",
+      youtubeId: "g3Xv8mQpR2L"
+    }
+  ]
+},
   {
     id: "nextjs-fullstack",
     title: "Next.js Fullstack Mastery",
