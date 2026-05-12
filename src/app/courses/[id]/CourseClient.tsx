@@ -36,7 +36,6 @@ const ACCENT: Record<string, { bar: string; tag: string }> = {
 type SideTab = "outline" | "notes" | "resources" | "shortcuts";
 
 export default function CourseClient({ id }: { id: string }) {
-  // ⚠️ Remove the async keyword – this is now synchronous
   const [courses, setCourses] = useState(STATIC);
   useEffect(() => {
     setCourses(getMergedCourses());
