@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Sprint.dev design tokens
+  ------------------------
+  Route blue  → where you are / what to do next
+  Amber       → milestones only (the thing you build to prove it)
+  Green       → done
+  Everything else is neutral ink on cool paper.
+*/
+:root {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --c-bg:       #f5f6f8;
+  --c-surface:  #ffffff;
+  --c-surface2: #eceef2;
+  --c-border:   #dce0e7;
+  --c-ink:      #0e1620;
+  --c-ink2:     #465162;
+  --c-ink3:     #6b7585;
+
+  --c-blue:      #2b44f0;
+  --c-blue-dim:  #e9ecff;
+  --c-blue-mid:  #d3d9ff;
+  --c-green:     #12804f;
+  --c-green-dim: #e4f6ec;
+  --c-amber:     #b26b00;
+  --c-amber-dim: #fff3dc;
+  --c-red:       #c62828;
+  --c-red-dim:   #fdeaea;
+
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-pop: 0 12px 40px -12px rgba(14, 22, 32, 0.25);
+  color-scheme: light;
+}
+
+.dark {
+  --c-bg:       #0a0e13;
+  --c-surface:  #10161d;
+  --c-surface2: #18202a;
+  --c-border:   #232d3a;
+  --c-ink:      #eaeff6;
+  --c-ink2:     #9aa6b8;
+  --c-ink3:     #7a8699;
+
+  --c-blue:      #8a98ff;
+  --c-blue-dim:  #8a98ff1a;
+  --c-blue-mid:  #8a98ff33;
+  --c-green:     #4cd697;
+  --c-green-dim: #4cd6971a;
+  --c-amber:     #f3b544;
+  --c-amber-dim: #f3b5441a;
+  --c-red:       #ff7a7a;
+  --c-red-dim:   #ff7a7a1a;
+
+  --shadow-pop: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: var(--font-body);
+    background: var(--c-bg);
+    color: var(--c-ink);
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; letter-spacing: -0.025em; }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; }
+  code, pre, kbd { font-family: var(--font-mono); }
+  ::selection { background: var(--c-blue-mid); color: var(--c-ink); }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 99px; }
+
+  :focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+}
+
+@layer components {
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .page { padding-top: 88px; padding-bottom: 96px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    padding: 10px 18px; font-size: 14px; font-weight: 600; line-height: 1.2;
+    border-radius: var(--radius-sm); cursor: pointer;
+    border: 1px solid transparent; transition: background 0.12s, border-color 0.12s, color 0.12s;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--c-ink); color: var(--c-bg); border-color: var(--c-ink); }
+  .btn-primary:hover { background: var(--c-blue); border-color: var(--c-blue); color: #fff; }
+  .btn-outline { background: var(--c-surface); color: var(--c-ink); border-color: var(--c-border); }
+  .btn-outline:hover { border-color: var(--c-ink3); }
+  .btn-ghost { background: transparent; color: var(--c-ink2); padding: 8px 12px; }
+  .btn-ghost:hover { background: var(--c-surface2); color: var(--c-ink); }
+  .btn-sm { padding: 6px 12px; font-size: 12.5px; }
+
+  /* Surfaces */
+  .card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+  }
+  .card-hover { transition: border-color 0.15s; }
+  .card-hover:hover { border-color: var(--c-ink3); }
+
+  /* Tags: sentence case, no shouting */
+  .tag {
+    display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px;
+    border-radius: 99px; font-size: 12px; font-weight: 600; line-height: 1.5;
+  }
+  .tag-blue    { background: var(--c-blue-dim);  color: var(--c-blue); }
+  .tag-green   { background: var(--c-green-dim); color: var(--c-green); }
+  .tag-amber   { background: var(--c-amber-dim); color: var(--c-amber); }
+  .tag-neutral { background: var(--c-surface2);  color: var(--c-ink2); }
+
+  .search-input {
+    width: 100%; padding: 10px 14px 10px 40px;
+    background: var(--c-surface); border: 1px solid var(--c-border);
+    border-radius: var(--radius-sm); font-family: var(--font-body);
+    font-size: 14px; color: var(--c-ink); outline: none;
+    transition: border-color 0.12s, box-shadow 0.12s;
+  }
+  .search-input::placeholder { color: var(--c-ink3); }
+  .search-input:focus { border-color: var(--c-blue); box-shadow: 0 0 0 3px var(--c-blue-dim); }
+
+  .progress-track { height: 4px; background: var(--c-surface2); border-radius: 99px; overflow: hidden; }
+  .progress-fill  { height: 100%; border-radius: 99px; background: var(--c-blue); transition: width 0.35s ease; }
+
+  .label { font-family: var(--font-mono); font-size: 12px; color: var(--c-ink3); }
+  .code-inline { font-family: var(--font-mono); font-size: 0.875em; background: var(--c-surface2); border: 1px solid var(--c-border); border-radius: var(--radius-xs); padding: 1px 5px; color: var(--c-blue); }
+
+  /* ── The route: the signature element ─────────────────────────
+     A vertical line with nodes. Circle = topic, diamond = milestone.
+     Done nodes fill in. Used in the hero, roadmap list and roadmap detail. */
+  .route { position: relative; }
+  .route::before {
+    content: ""; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 2px;
+    background: var(--c-border); border-radius: 2px;
+  }
+  .route-row { position: relative; padding-left: 34px; }
+  .node {
+    position: absolute; left: 1px; top: 4px; width: 16px; height: 16px;
+    border-radius: 50%; background: var(--c-bg); border: 2px solid var(--c-ink3);
+    display: grid; place-items: center; cursor: pointer; padding: 0;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .node:hover { border-color: var(--c-blue); transform: scale(1.12); }
+  .node[aria-pressed="true"] { background: var(--c-green); border-color: var(--c-green); }
+  .node svg { width: 9px; height: 9px; color: var(--c-bg); opacity: 0; }
+  .node[aria-pressed="true"] svg { opacity: 1; }
+  .node-milestone {
+    position: absolute; left: 2px; top: 5px; width: 14px; height: 14px;
+    border-radius: 3px; transform: rotate(45deg);
+    background: var(--c-bg); border: 2px solid var(--c-amber);
+  }
+  .node-milestone[data-done="true"] { background: var(--c-amber); }
+
+  .skeleton { background: var(--c-surface2); border-radius: var(--radius-xs); }
+
+  @keyframes blink { 50% { opacity: 0; } }
+}
